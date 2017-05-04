@@ -1,0 +1,492 @@
+@import "bourbon";
+@import "fonts";
+@import "libs";
+@import "reset";
+@import "media";
+
+body {
+  background-color: #fff;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+
+}
+
+button:active, button:focus, input {
+  outline: none;
+}
+button::-moz-focus-inner {
+  border: 0;
+}
+
+//========== header
+.header {
+  width: 100%;
+  min-height: 150px;
+}
+
+.logo {
+  width: 120px;
+  height: 50px;
+  float: left;
+  margin-left: 50px;
+  margin-top: 10px;
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.search-form {
+  width: 450px;
+  float: left;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid $main-color;
+  margin-left: 115px;
+  margin-top: 15px;
+  &__find {
+    width: 5%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    transition: all $main-time;
+    &:hover {
+      color: $main-color;
+    }
+  }
+  &__input {
+    border: none;
+    width: 95%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: #4a4a4a;
+    font-size: 0.875em;
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+}
+
+.user-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 380px;
+  height: 60px;
+  background-color: $main-color;
+  float: right;
+  color: #fff;
+  padding: 0 25px;
+  border: none;
+  text-align: left;
+  transition: all $main-time ease;
+  cursor: pointer;
+  position: relative;
+  &__img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  &__name {
+    font-family: $main-font;
+    font-size: 1.125em;
+    font-weight: bold;
+    width: 245px;
+  }
+  &__in {
+    float: right;
+    font-size: 24px;
+
+  }
+  &:hover {
+    box-shadow: inset 5px 0px #4a4a4a;
+    .user-button__sub{
+      display: inline-block;
+    }
+    i {
+      color: #eee;
+      transition: 1s;
+    }
+  }
+  &__sub {
+    position: absolute;
+    bottom: -42px;
+    left: 0;
+    height: 42px;
+    width: 100%;
+    background-color: $main-color;
+    text-align: center;
+    display: none;
+  }
+  &__new-post,
+  &__profile {
+    float: left;
+    width: calc( 50% - 5px);
+    line-height: 42px;
+    font-size: 16px;
+    border-left: 5px solid #4a4a4a;
+    font-family: MyrReg, sans-serif;
+    &:hover {
+      background-color: #13C3CB;
+    }
+    &:active {
+      background-color: #13C3CB;
+    }
+  }
+}
+//========== header
+
+
+//========== main-content
+.s-content {
+  flex-grow: 1;
+  height: 400px;
+  overflow-y: scroll;
+  &__inner {
+    height: 100%;
+    max-width: 1340px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.s-content::-webkit-scrollbar {
+  width: 0;
+}
+.s-content {
+  -ms-overflow-style: none;
+}
+
+.product-item {
+  width: 320px;
+  height: 250px;
+  position: relative;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  &:hover {
+    a {
+      transition: all $main-time;
+      opacity: 0.9;
+    }
+    .product-item__bottom {
+      transition: all $main-time cubic-bezier(.01,.63,.45,1.68);
+      height: 70px;
+    }
+  }
+  &:nth-child(4n + 1){
+    margin-left: 0;
+  }
+  &__bacground {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    img {
+      width: 120%;
+    }
+  }
+  &__bottom {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: $main-color;
+    color: #fff;
+    span {
+      font-family: $main-font;
+      font-size: 1.125em;
+      font-weight: bold;
+      line-height: 50px;
+      margin-left: 15px;
+    }
+    i {
+      font-size: 1.250em;
+      display: inline-block;
+      float: right;
+      line-height: 50px;
+      margin-right: 15px;
+    }
+  }
+}
+//========== end main-content
+
+//========== end single-page
+.single-item{
+  flex-grow: 1;
+  font-family: $main-font;
+  .bold{
+    font-weight: bold;
+  }
+  .italic {
+    font-style: italic;
+  }
+  .big-font {
+    text-transform: uppercase;
+  }
+  &__inner {
+    display: flex;
+    flex-direction: row;
+  }
+  &__background {
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    float: right;
+    position: relative;
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+  &__description {
+    width: 500px;
+    color: #4a4a4a;
+    h2{
+      font-size: 2em;
+      margin-bottom: 20px;
+      font-family: MyrReg, Arial, sans-serif;
+    }
+    p {
+      font-size: 1.125em;
+      margin-bottom: 30px;
+    }
+  }
+  &__price {
+    .green{
+      color: $second-color;
+    }
+    .blue{
+      color: $main-color;
+    }
+    .big-font {
+      font-size: 2em;
+    }
+  }
+  &__roster{
+    margin-bottom: 30px;
+    li:nth-child(2),
+    li:last-child{
+      margin-left: 30px;
+
+    }
+  }
+  &__list {
+    li:last-child{
+      margin-top: 30px;
+    }
+  }
+
+}
+
+//========== slider single-page
+.slider {
+  margin: 0 auto;
+  max-width: $slider-w-h;
+}
+
+.slide_viewer {
+  width: 100%;
+  height: $slider-w-h;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide_group {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.slide {
+  display: none;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.slide:first-child {
+  display: block;
+}
+
+
+
+.previous_btn {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  display: flex;
+  i {
+    margin: auto;
+  }
+}
+
+.next_btn {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  i {
+    margin: auto;
+  }
+}
+
+.previous_btn, .next_btn {
+  cursor: pointer;
+  height: 100%;
+  opacity: 0.1;
+  transition: opacity 0.4s ease-in-out;
+  width: 50px;
+  background-color: #fff;
+  font-size: 20px;
+}
+
+.previous_btn:hover, .next_btn:hover {
+  opacity: 0.6;
+}
+  //========== end slider single-page
+//========== end single-page
+
+
+//========== login-page
+
+
+
+.s-login {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: -150px;
+  margin-bottom: -60px;
+  &_bg{
+    flex-grow: 1;
+    align-self: stretch;
+    overflow: hidden;
+    z-index: -1;
+    background-image: url("../img/login-page/main-bg-l.jpg");
+    background-position: left bottom;
+    background-size: 109% auto;
+    background-repeat: no-repeat;
+    img {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+    }
+  }
+  &_inner {
+    width: 380px;
+    background-color: $main-color;
+    display: flex;
+    flex-direction: column;
+  }
+  &_logo {
+    width: 200px;
+    margin: 75px auto 100px;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  &_buttons {
+    margin: 0 auto 50px;
+    width: 330px;
+    button {
+      width: 150px;
+      height: 35px;
+      border: none;
+      background-color: #f2f2f2;
+      cursor: pointer;
+      font-family: $main-font, monospace;
+      color: #4a4a4a;
+      transition: all $main-time;
+      &:hover {
+        box-shadow: inset 0 -3px $second-color;
+      }
+      &:active {
+        background-color: #91d763;
+      }
+    }
+    .sign-in{
+      float: left;
+    }
+    .sign-up{
+      float: right;
+    }
+  }
+  &_form {
+    display: flex;
+    flex-direction: column;
+    width: 330px;
+    margin: 0 auto;
+    input {
+      border: none;
+      background-color: transparent;
+      height: 26px;
+      color: #f2f2f2;
+      padding-left: 14px;
+      border-bottom: 3px solid #fff;
+      font-family: Arial, monospace;
+      transition: all $main-time;
+      &:focus {
+        border-bottom: 3px solid $second-color;
+        transition: all $main-time;
+      }
+    }
+    input::-webkit-input-placeholder { color: #f2f2f2; }
+    input:-moz-placeholder { color: #f2f2f2; }
+    button {
+      margin-top: 35px;
+      height: 35px;
+      border: none;
+      background-color: #f2f2f2;
+      cursor: pointer;
+      font-family: $main-font, monospace;
+      color: #4a4a4a;
+      transition: all $main-time;
+      &:hover {
+        box-shadow: inset 0 -3px $second-color;
+      }
+      &:active {
+        background-color: #91d763;
+      }
+    }
+  }
+}
+
+
+
+//========== end login-page
+
+//========== footer
+.footer {
+  width: 100%;
+  min-height: 50px;
+  background-color: $main-color;
+  text-align: center;
+  margin-top: 10px;
+  &__text {
+    font-size: 1.125em;
+    font-family: $main-font;
+    font-weight: bold;
+    color: #fff;
+    line-height: 50px;
+  }
+}
+//========== end footer
